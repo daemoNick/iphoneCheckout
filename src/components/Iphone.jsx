@@ -4,8 +4,8 @@ import { RoundedBox } from "@react-three/drei";
 const Iphone = () => {
   return (
     <>
-      <RoundedBox args={[3, 3, 0.25]} radius={0.1}>
-        <meshLambertMaterial attach="material" color={"grey"} />
+      <RoundedBox args={[1.3, 2.4, 0.25]} radius={0.1}>
+        <meshLambertMaterial attach="material" color={0xfa1302} />
       </RoundedBox>
     </>
   );
