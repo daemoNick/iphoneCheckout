@@ -16,7 +16,10 @@ function MyBox(props) {
       onPointerOut={() => hover(false)}
     >
       <boxGeometry args={props.size} />
-      <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
+      <meshStandardMaterial
+        color={hovered ? "hotpink" : "orange"}
+        wireframe={hovered}
+      />
     </mesh>
   );
 }
