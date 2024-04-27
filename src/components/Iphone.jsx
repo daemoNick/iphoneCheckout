@@ -1,12 +1,13 @@
 import React from "react";
-import { RoundedBox } from "@react-three/drei";
+import { useGLTF, useAnimations } from "@react-three/drei";
 
 const Iphone = () => {
+  const model = useGLTF("/iphone15pro-v2.glb");
   return (
     <>
-      <RoundedBox args={[1.3, 2.4, 0.25]} radius={0.1}>
-        <meshLambertMaterial attach="material" color={0xfa1302} />
-      </RoundedBox>
+      <mesh>
+        <primitive object={model.scene} />
+      </mesh>
     </>
   );
 };

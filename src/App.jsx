@@ -4,8 +4,8 @@ import "./index.css";
 
 function App() {
   return (
-    <Canvas shadows camera={{ position: [-0.935, 0.548, -11.756], fov: 30 }}>
-      <color attach="background" args={["#ececec"]} />
+    <Canvas camera={{ position: [0.0258, 0.0176, -0.7616], fov: 30 }}>
+      <color attach="background" args={["#9FE9EE"]} />
       <Experience />
     </Canvas>
   );
