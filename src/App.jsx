@@ -6,11 +6,13 @@ import IphoneSpecs from "./components/IphoneSpecs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import PriceAndColor from "./components/PriceAndColor";
+import Checkout from "./components/Checkout";
 
 function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [playOnce, setPlayOnce] = useState(false);
   const [resetFunction, setResetFunction] = useState(null);
+  const [showCheckout, setShowCheckout] = useState(false);
 
   const handleStart = () => {
     setIsPlaying(true);
@@ -20,6 +22,7 @@ function App() {
   const handleStop = () => {
     setIsPlaying(false);
     setPlayOnce(false);
+    setShowCheckout(false);
   };
 
   const handlePlayOnce = () => {
@@ -44,6 +47,7 @@ function App() {
   const addToCart = async () => {
     await handleReset();
     handlePlayOnce();
+    setShowCheckout(true);
   };
 
   return (
@@ -59,6 +63,7 @@ function App() {
             </button>
           }
         />
+        {showCheckout && <Checkout />}
       </div>
       <div className="pg-btm">
         <button onClick={handleStart}>Start Animation</button>
