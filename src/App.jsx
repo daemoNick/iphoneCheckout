@@ -52,6 +52,9 @@ function App() {
 
   return (
     <>
+      <header className="store-header">
+        <h1>My Very Real Phone Store</h1>
+      </header>
       <div className="pg-left">
         <IphoneSpecs />
       </div>
