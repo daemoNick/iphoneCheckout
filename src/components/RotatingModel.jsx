@@ -49,9 +49,21 @@ const RotatingModel = ({ children, onReset }) => {
   };
 
   const resetRotation = useCallback(() => {
-    setTargetRotation({ x: 0, y: 0 });
-    setResetInProgress(true);
-  }, []);
+    return new Promise((resolve) => {
+      setTargetRotation({ x: 0, y: 0 });
+      setResetInProgress(true);
+
+      const checkResetCompletion = () => {
+        if (!resetInProgress) {
+          resolve();
+        } else {
+          requestAnimationFrame(checkResetCompletion); // Continue checking until reset is complete
+        }
+      };
+
+      requestAnimationFrame(checkResetCompletion);
+    });
+  }, [resetInProgress]);
 
   useEffect(() => {
     if (onReset) {
@@ -81,11 +93,9 @@ const RotatingModel = ({ children, onReset }) => {
             y: prevRotation.y + (targetRotation.y - prevRotation.y) * damping,
           };
 
-          // Update rotation of the 3D object directly
           groupRef.current.rotation.x = newRotation.x;
           groupRef.current.rotation.y = newRotation.y;
 
-          // Check if the rotation is close enough to the target to stop
           if (
             Math.abs(newRotation.x - targetRotation.x) < 0.001 &&
             Math.abs(newRotation.y - targetRotation.y) < 0.001
@@ -97,7 +107,6 @@ const RotatingModel = ({ children, onReset }) => {
           return newRotation;
         });
       } else {
-        // Update rotation with current values
         groupRef.current.rotation.x = rotation.x;
         groupRef.current.rotation.y = rotation.y;
       }

@@ -1,3 +1,5 @@
+@import url('./font.css');
+
 #root {
   width: 100vw;
   height: 100vh;
@@ -7,4 +9,182 @@ html, body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-family: 'SF Pro', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.iphone-specs {
+  position: fixed;
+  z-index: 10;
+  padding: 30px;
+  width: 350px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  top: 20px;
+  left: 20px;
+}
+
+.iphone-specs h2 {
+  color: #1d1d1f;
+  border-bottom: none;
+  padding-bottom: 15px;
+  font-size: 24px;
+  margin-top: 0;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.iphone-specs ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.iphone-specs ul li {
+  margin-bottom: 12px;
+  line-height: 1.5;
+  font-size: 15px;
+  color: #333;
+  display: flex;
+  align-items: baseline;
+}
+
+.iphone-specs ul li::before {
+  content: '•';
+  color: #0071e3;
+  font-size: 18px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.iphone-specs ul ul {
+  margin-top: 8px;
+  padding-left: 20px;
+}
+
+.iphone-specs ul ul li {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.iphone-specs ul ul li::before {
+  content: '◦';
+  color: #6e6e73;
+  font-size: 16px;
+}
+
+.action-btn {
+  padding: 30px 0;
+}
+
+.action-btn button {
+  background-color: #68cc45;
+  color: #ffffff;
+  font-family: 'SF Pro', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  min-width: 28px;
+  padding: 8px 16px;
+  border-radius: 980px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1.17648;
+  letter-spacing: -0.022em;
+}
+
+.action-btn .add-to-cart:hover {
+  background-color: #5dbf3e;
+}
+
+.action-btn .add-to-cart:active {
+  background-color: #54b238;
+}
+
+.price-color-section {
+  font-family: 'SF Pro', 'Helvetica Neue', Arial, sans-serif;
+  position: fixed;
+  z-index: 10;
+  padding: 30px;
+  width: 350px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  top: 20px;
+  right: 20px;
+}
+
+.price-color-section h2 {
+  color: #1d1d1f;
+  border-bottom: none;
+  padding-bottom: 15px;
+  font-size: 24px;
+  margin-top: 0;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.price {
+  margin-bottom: 20px;
+}
+
+.price span {
+  display: block;
+  font-size: 14px;
+  color: #86868b;
+}
+
+.price .amount {
+  font-size: 40px;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.color-options p {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.color-options p span {
+  font-weight: 600;
+}
+
+.color-picker {
+  display: flex;
+  gap: 10px;
+}
+
+.color-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+.color-option.selected {
+  border-color: #0071e3;
+}
+
+.pg-btm {
+  position: fixed;
+  z-index: 10;
+  padding: 30px;
+  width: 350px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  bottom: 20px;
+  left: 20px;
 }

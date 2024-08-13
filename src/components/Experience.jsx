@@ -1,27 +1,25 @@
-import React from "react";
-import BoxCover from "./BoxCover";
+import React, { useState } from "react";
 import Lights from "./Lights";
-import Iphone from "./Iphone";
-import { Iphone2 } from "./Iphone2";
 import { useThree } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
+import { AddToCart } from "./AddToCart";
+import RotatingModel from "./RotatingModel";
 
-export const Experience = () => {
+export const Experience = ({ isPlaying, playOnce, onReset }) => {
   const camera = useThree((state) => state.camera);
-
-  function logCameraPosition() {
-    console.log(camera);
-  }
-  window.addEventListener("click", logCameraPosition);
 
   return (
     <>
-      <Environment preset="city" />
+      <Environment files="/phone_shop_1k.hdr" blur={0.05} />
       <Lights />
-      <Iphone />
-      <Iphone2 />
-      <BoxCover />
-      <OrbitControls />
+      <RotatingModel onReset={onReset}>
+        <AddToCart
+          isPlaying={isPlaying}
+          position={[0, -1, 0]}
+          playOnce={playOnce}
+        />
+      </RotatingModel>
+      {/* <OrbitControls /> */}
     </>
   );
 };
